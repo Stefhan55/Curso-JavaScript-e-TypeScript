@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;700&display=swap');
+
+/* ================================
+   VARIÁVEIS BASE
+================================ */
+:root {
+    --primary-color: #e89aa8; /* rosa cerejeira */
+    --primary-color-darker: #b66f7b;
+    --bg-gradient: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    --text-color: #2c3e50;
+    --input-bg: #ffffff;
+    --input-border: #dcdcdc;
+    --shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    --radius: 16px;
+    --transition: all 0.3s ease;
+    --font-body: 'Open Sans', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+}
+
+/* ================================
+   DARK MODE
+================================ */
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #1f1f1f, #2c3e50);
+    --text-color: #f5f5f5;
+    --input-bg: #2a2a2a;
+    --input-border: #444;
+    --primary-color: #ff94b6;
+    --primary-color-darker: #cc6a8c;
+    --shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* ================================
+   RESET + BASE
+================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ================================
+   FLORES DE CEREJEIRA
+================================ */
+.sakura {
+    position: fixed;
+    top: -10%;
+    width: 15px;
+    height: 15px;
+    background: pink;
+    border-radius: 50% 50% 50% 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+/* Gera várias pétalas */
+.sakura:nth-child(1) { left: 5%; animation-duration: 8s; animation-delay: 0s; }
+.sakura:nth-child(2) { left: 15%; animation-duration: 10s; animation-delay: 2s; }
+.sakura:nth-child(3) { left: 25%; animation-duration: 12s; animation-delay: 4s; }
+.sakura:nth-child(4) { left: 40%; animation-duration: 9s; animation-delay: 1s; }
+.sakura:nth-child(5) { left: 55%; animation-duration: 11s; animation-delay: 3s; }
+.sakura:nth-child(6) { left: 70%; animation-duration: 13s; animation-delay: 5s; }
+.sakura:nth-child(7) { left: 85%; animation-duration: 14s; animation-delay: 2s; }
+.sakura:nth-child(8) { left: 95%; animation-duration: 9s; animation-delay: 4s; }
+
+/* Animação da queda */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) rotate(180deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ================================
+   CONTAINER
+================================ */
+.container {
+    max-width: 640px;
+    width: 100%;
+    background: var(--input-bg);
+    padding: 30px 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.6s ease-in-out;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    z-index: 2; /* acima das flores */
+}
+
+/* ================================
+   FORMULÁRIO
+================================ */
+form {
+    border: none; /* remove borda extra */
+}
+
+form fieldset {
+    border: none; /* remove borda padrão do navegador */
+    padding: 0;
+    margin: 0;
+}
+
+form label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+form input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 15px;
+    margin-bottom: 16px;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius);
+    background: var(--input-bg);
+    transition: var(--transition);
+}
+
+form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(232, 154, 168, 0.3);
+    outline: none;
+    transform: scale(1.01);
+}
+
+/* ================================
+   BOTÕES
+================================ */
+form button {
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 14px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transition);
+}
+
+form button:hover {
+    background: var(--primary-color-darker);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Botão de alternar tema */
+.theme-toggle {
+    margin-top: 20px;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.theme-toggle:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* ================================
+   ANIMAÇÕES
+================================ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   RESPONSIVO
+================================ */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    form input, 
+    form button,
+    .theme-toggle {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}

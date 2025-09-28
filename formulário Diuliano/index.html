@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulário moderno, responsivo e acessível com inputs de exemplo.">
+  <meta name="theme-color" content="#e89aa8">
+  <title>Formulário Modelo</title>
+
+  <!-- Performance: fontes mais rápidas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+  <!-- Flores de cerejeira (fundo animado) -->
+  <div class="sakura"></div>
+  <div class="sakura"></div>
+  <div class="sakura"></div>
+  <div class="sakura"></div>
+  <div class="sakura"></div>
+  <div class="sakura"></div>
+  <div class="sakura"></div>
+  <div class="sakura"></div>
+
+  <main class="container">
+    <header>
+      <h1>Lorem ipsum dolor sit amet</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Repellendus nisi explicabo saepe voluptatibus consequuntur et corporis
+        maxime quos, doloribus vitae voluptatum quisquam necessitatibus
+        pariatur veritatis exercitationem beatae officiis suscipit Ea!
+      </p>
+    </header>
+
+    <form action="/enviar" method="post" novalidate>
+      <fieldset>
+        <legend>Preencha os dados abaixo</legend>
+
+        <label for="input-nome">Nome completo</label>
+        <input type="text" id="input-nome" name="nome" placeholder="Digite seu nome" 
+               autocomplete="name" required aria-required="true">
+
+        <label for="input-senha">Senha</label>
+        <input type="password" id="input-senha" name="senha" placeholder="Digite sua senha" 
+               autocomplete="current-password" required aria-required="true">
+
+        <label for="input-email">E-mail</label>
+        <input type="email" id="input-email" name="email" placeholder="exemplo@email.com" 
+               autocomplete="email" required aria-required="true">
+
+        <label for="input-idade">Idade</label>
+        <input type="number" id="input-idade" name="idade" min="1" max="120" 
+               placeholder="Sua idade" required aria-required="true">
+
+        <button type="submit" aria-label="Enviar formulário">Enviar</button>
+      </fieldset>
+    </form>
+
+    <!-- Botão de alternar tema -->
+    <button class="theme-toggle" type="button" aria-label="Alternar tema claro/escuro">
+      🌙 Alternar tema
+    </button>
+  </main>
+
+  <script src="./assets/js/main.js" defer></script>
+  <script>
+    // Alternância de tema (claro/escuro)
+    const toggleBtn = document.querySelector('.theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>
